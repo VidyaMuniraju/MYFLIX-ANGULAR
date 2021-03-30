@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap');
+
+.body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.main {
+  font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.card {
+  margin-bottom: 15px;
+  font-family: 'Noto Sans', sans-serif;
+  width: 25%;
+}
+
+.nav {
+  justify-content: flex-end;
+  align-content: end;
+}
+
+.navBtn {
+  border: none;
+  background-color: #F5F5F5;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 15px;
+}
+
+.logBtn {
+  border: none;
+  background-color: #F5F5F5;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 15px;
+}
+
+.genreBtn {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.directorBtn {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.synBtn {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.addFavBtn {
+  font-family: 'Noto Sans', sans-serif;
+}

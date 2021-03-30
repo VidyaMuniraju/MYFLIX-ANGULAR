@@ -1,11 +1,6 @@
 <mat-card>
-  <div>
-    <button mat-icon-button class="close-icon" color="basic" [mat-dialog-close]="true">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title>Edit Profile</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
@@ -15,11 +10,17 @@
       <mat-form-field>
         <input matInput [(ngModel)]="userData.Password" type="password" placeholder="Password" name="Password" required>
       </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="userData.EmailId" type="email" placeholder="Email" name="Email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="userData.BirthDay" type="date" placeholder="Birthday" name="Birthday">
+      </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="loginUser()" color="primary">
-      Login
+    <button mat-raised-button (click)="updateUserProfile()" color="primary">
+      Edit User Information
     </button>
   </mat-card-actions>
 </mat-card>

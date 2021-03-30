@@ -1,0 +1,58 @@
+<div class="body">
+  <mat-toolbar class="nav">
+    <button class="navBtn" (click)="openMoviesComponent()">Home</button>
+    <button class="logBtn" (click)="logoutUser()">Logout</button>
+  </mat-toolbar>
+  <div class="main">
+    <!-- <mat-card class="profile"> -->
+    <!-- <mat-card-title class="title">
+          Your Profile
+        </mat-card-title> -->
+    <h1 class="title">Your Profile</h1>
+    <p class="pContent">
+      Username: {{user.Username}}
+    </p>
+    <p class="pContent">
+      Email ID: {{user.EmailId}}
+    </p>
+    <p class="pContent">
+      Birthday: {{user.BirthDay | date : 'MM/dd/yyyy' : 'UTC'}}
+    </p>
+
+    <div class="editBtn">
+      <button mat-stroked-button color="basic" class="edit" (click)="openUpdateProfileDialog()">
+        Edit Profile
+      </button>
+      <button mat-stroked-button color="basic" class="delete" (click)="deleteUser()">
+        Delete Profile
+      </button>
+    </div>
+    <!-- <div>
+          <button mat-stroked-button color="basic" class="delete" (click)="deleteUser()">
+            Delete Profile
+          </button>
+        </div> -->
+
+    <!-- </mat-card> -->
+  </div>
+
+  <div class="fav">
+    <div class="favContent">
+      <mat-card-title class="favTitle">
+        Your Favorite Movies
+      </mat-card-title>
+      <div class="favMovies">
+        <mat-card *ngFor="let favorite of favMovies;" class="card">
+          <img src={{favorite.ImageURL}} alt={{favorite.Title}} />
+          <div class="fMTitle">
+            <mat-card-title>{{favorite.Title}}</mat-card-title>
+            <button class="rmBtn" mat-button color="primary" (click)="removeFav(favorite._id, favorite.Title)">
+              Remove From favorites
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+</div>

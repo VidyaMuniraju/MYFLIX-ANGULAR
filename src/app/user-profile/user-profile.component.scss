@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap');
+
+.body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.main {
+  display: block;
+  justify-items: auto;
+  margin: 50px;
+}
+
+
+.nav {
+  justify-content: flex-end;
+  align-content: end;
+}
+
+.navBtn {
+  border: none;
+  background-color: #F5F5F5;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 15px;
+}
+
+.logBtn {
+  border: none;
+  background-color: #F5F5F5;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 15px;
+}
+
+
+// .menuBtn {
+//   margin: 10px;
+//   align-self: start;
+// }
+
+.title {
+  font-size: x-large;
+  align-self: left;
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: 25px;
+}
+
+.pContent {
+  margin: 15px;
+  font-size: large;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.editBtn {
+  margin: 15px;
+
+}
+
+.edit {
+  margin-right: 15px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.delete {
+  margin-left: 15px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.fav {
+  margin: 15px;
+}
+
+.favTitle {
+  margin: 20px;
+}
+
+.favMovies {
+  font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.card {
+  margin-bottom: 15px;
+  font-family: 'Noto Sans', sans-serif;
+  width: 25%;
+}
