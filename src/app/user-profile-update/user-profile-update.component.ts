@@ -1,3 +1,6 @@
+/**
+* Declaring the variables required
+*/
 import { Component, OnInit, Input } from '@angular/core';
 import { EditUserService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,6 +12,9 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./user-profile-update.component.scss']
 })
 export class UserProfileUpdateComponent implements OnInit {
+  /**
+  * Declaring the input fields required for the functionality to work as required
+  */
   @Input() userData = { Username: '', Password: '', EmailId: '', BirthDay: '' };
 
   constructor(
@@ -20,6 +26,9 @@ export class UserProfileUpdateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * This function implements the user update strategy
+  */
   updateUserProfile(): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
       this.dialogRef.close();

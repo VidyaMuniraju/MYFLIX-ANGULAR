@@ -4,19 +4,28 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-// Declaring the api url that will provide data for the client app
 
+/**
+* Declaring the api url that will provide data for the client app
+*/
 const apiUrl = 'https://flix-world.herokuapp.com/';
 
+/**
+* This allows users to register
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class UserRegistrationService {
-  // inject the httpclient module to the constructor params
-  // this will provide httpclient to the entire class, making it available via this.http
+  /**
+  * Inject the httpclient module to the constructor params
+  * this will provide httpclient to the entire class, making it available via this.http
+  */
   constructor(private http: HttpClient) { }
-
-  // making the api call for the user registration endpoint
+  /**
+  * Making the API call for the user registration endpoint
+  * @param userDetails
+  */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
@@ -37,12 +46,19 @@ export class UserRegistrationService {
   }
 }
 
+/**
+* This allows users to signin
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoginService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the user signin endpoint
+  * @param userDetails
+  */
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'login', userDetails).pipe(
@@ -63,12 +79,18 @@ export class UserLoginService {
   }
 }
 
+/**
+* This class gets data about all movies
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class GetAllMoviesService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get movies endpoint
+  */
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {
@@ -100,12 +122,19 @@ export class GetAllMoviesService {
   }
 }
 
+/**
+* This class gets data about a single movie
+*/
+
 @Injectable({
   providedIn: 'root'
 })
 export class GetSingleMovieService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get movie endpoint
+  */
   getSingleMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/:Title', {
@@ -137,12 +166,18 @@ export class GetSingleMovieService {
   }
 }
 
+/**
+* This class gets data about a director
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class GetDirectorService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get director endpoint
+  */
   getDirector(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/director/:Name', {
@@ -174,12 +209,18 @@ export class GetDirectorService {
   }
 }
 
+/**
+* This class gets data about a genre
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class GetGenreService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get genre endpoint
+  */
   getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/genre/:Name', {
@@ -211,12 +252,18 @@ export class GetGenreService {
   }
 }
 
+/**
+* This class gets data about a user
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class GetUserService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get user endpoint
+  */
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const Username = localStorage.getItem('user');
@@ -249,12 +296,18 @@ export class GetUserService {
   }
 }
 
+/**
+* This class returns the user's favorite movies
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class GetFavoriteMoviesService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get favorite movies endpoint
+  */
   getFavoriteMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + '/users/:Username/favoritemovies', {
@@ -286,12 +339,19 @@ export class GetFavoriteMoviesService {
   }
 }
 
+/**
+* This class returns the user's favorite movies
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class AddFavoriteMoviesService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the get favorite movies endpoint
+  * @param id
+  */
   addFavoriteMovies(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const Username = localStorage.getItem('user');
@@ -324,12 +384,19 @@ export class AddFavoriteMoviesService {
   }
 }
 
+/**
+* This class lets a user to edit their profile
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class EditUserService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the update user endpoint
+  * @param userDetails
+  */
   editUser(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     const Username = localStorage.getItem('user');
@@ -363,12 +430,18 @@ export class EditUserService {
   }
 }
 
+/**
+* This class lets a user to edit their profile
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class DeleteUserService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the delete user endpoint
+  */
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const Username = localStorage.getItem('user');
@@ -402,12 +475,18 @@ export class DeleteUserService {
   }
 }
 
+/**
+* This class lets a user to delete a movie from their favorite movies list
+*/
 @Injectable({
   providedIn: 'root'
 })
 export class DeleteFavoriteMoviesService {
   constructor(private http: HttpClient) { }
 
+  /**
+  * Making the API call for the delete favorite movie endpoint
+  */
   deleteFavoriteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const Username = localStorage.getItem('user');
@@ -438,4 +517,8 @@ export class DeleteFavoriteMoviesService {
     return throwError(
       'Something bad happened; please try again later.');
   }
+}
+
+export class FetchApiDataService {
+  constructor() { }
 }

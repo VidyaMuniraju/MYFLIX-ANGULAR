@@ -1,3 +1,6 @@
+/**
+* This opens up the genre dialog displaying the details of the genre
+*/
 import { Component, OnInit } from '@angular/core';
 import { GetAllMoviesService, GetUserService, DeleteFavoriteMoviesService, DeleteUserService } from '../fetch-api-data.service';
 import { UserProfileUpdateComponent } from '../user-profile-update/user-profile-update.component';
@@ -12,6 +15,9 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
+  /**
+  * Declaring the variables required
+  */
   user: any = {};
   movies: any = [];
   favMovies: any = [];
@@ -27,6 +33,9 @@ export class UserProfileComponent implements OnInit {
     this.getUser();
   }
 
+  /**
+  * Returns the data about the user
+  */
   getUser(): void {
     this.fetchApiData.getUser().subscribe((result: any) => {
       this.user = result;
@@ -42,26 +51,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // async getUser(): Promise<void> {
-  //   try {
-  //     await this.fetchApiData.getUser().subscribe((result: any) => {
-  //       this.user = result;
-  //     });
-  //     console.log(this.user);
-  //     this.movies = await this.fetchApiMovData.getAllMovies();
-  //     console.log(this.movies);
-  //     // this.favMovies = this.movies.filter((movie: any) =>
-  //     //   this.user.FavoriteMovies.includes(movie._id)
-  //     // );
-  //     // console.log(this.favMovies);
-  //   }
-  //   catch (e) {
-  //     console.error(e);
-  //   }
-
-  //   // return;
-  // }
-
+  /**
+  * This deletes a movie from the user's favorite movies list
+  * @param id
+  * @param Title
+  */
   removeFav(id: string, Title: string): void {
     this.fetchApiDelFavData.deleteFavoriteMovie(id).subscribe(() => {
       this.snackBar.open(
@@ -72,16 +66,26 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+  * This opens up the dialog to update user's profile
+  */
   openUpdateProfileDialog(): void {
     this.dialog.open(UserProfileUpdateComponent, {
       width: '500px',
     });
   }
 
+
+  /**
+  * Navigating back to the movies page
+  */
   openMoviesComponent(): void {
     this.router.navigate(['movies']);
   }
 
+  /**
+  * This deletes the user's account from the application.
+  */
   deleteUser(): void {
     let okay = confirm("Are you sure you want to delete your profile?");
     if (okay) {
@@ -98,6 +102,9 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  /**
+  * Logging out the user from the application
+  */
   logoutUser(): void {
     localStorage.clear();
     this.router.navigate(['welcome']);

@@ -1,6 +1,6 @@
 # MyFlixAngularClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1. This is the client-side application for the movie API which I created(can be found in [Movie_FLIX](https://github.com/VidyaMuniraju/Movie_FLIX)).
 
 ## Development server
 
